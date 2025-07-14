@@ -16,7 +16,7 @@ app.use(
 app.post("/api/send-mail", async (req, res) => {
   try {
 
-    console.log("Req body: ",req.body)
+    // console.log("Req body: ",req.body)
     const { name, email, message } = req?.body;
 
     if (!name || !email || !message) {
@@ -40,7 +40,7 @@ app.post("/api/send-mail", async (req, res) => {
       message: "Mail sent successfully!",
     });
   } catch (error) {
-    console.log("Error: ", error);
+    // console.log("Error: ", error);
     return res.status(500).json({
       succes: false,
       message: "Internal server error!",

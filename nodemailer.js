@@ -96,7 +96,7 @@ const sendEmail = async (to, subject = "📩 New Message via Portfolio Contact F
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log(info);
+    // console.log(info);
     return info;
   } catch (error) {
     console.error("Error sending email:", error);
