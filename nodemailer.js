@@ -72,17 +72,24 @@ const baseHTML = `<!DOCTYPE html>
 </html>
 `;
 
-const sendEmail = async (to, subject = "📩 New Message via Portfolio Contact Form", text = "", { name, email, message }) => {
+const sendEmail = async (
+  to,
+  subject = "📩 New Message via Portfolio Contact Form",
+  text = "",
+  { name, email, message }
+) => {
   const html = baseHTML
     .replace("{{name}}", name)
     .replace("{{email}}", email)
     .replace("{{message}}", message);
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // REQUIRED for Gmail
     auth: {
       user: process.env.EMAIL_ID,
-      pass: process.env.EMAIL_PASSWORD,
+      pass: process.env.EMAIL_PASSWORD, // App password only
     },
   });
 
