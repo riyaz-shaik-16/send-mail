@@ -13,6 +13,10 @@ app.use(
   })
 );
 
+app.get("/",(req,res)=>{
+  return res.json({succes:true, message:"Hey there!"})
+})
+
 app.post("/api/send-mail", async (req, res) => {
   try {
 
